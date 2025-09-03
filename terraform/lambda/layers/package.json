@@ -1,0 +1,13 @@
+{
+    "name": "security-camera-lambda-dependencies",
+    "version": "1.0.0",
+    "description": "Dependencies for Security Camera Lambda functions",
+    "dependencies": {
+        "aws-sdk": "^2.1400.0",
+        "axios": "^1.6.0",
+        "aws-iot-device-sdk": "^2.2.13",
+        "jsonwebtoken": "^9.0.2",
+        "bcryptjs": "^2.4.3",
+        "uuid": "^9.0.1"
+    }
+}

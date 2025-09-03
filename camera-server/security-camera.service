@@ -1,0 +1,15 @@
+[Unit]
+Description=Security Camera Server
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/kumikomi3/camera-server
+Environment=PATH=/home/pi/kumikomi3/camera-server/venv/bin
+ExecStart=/home/pi/kumikomi3/camera-server/venv/bin/python main.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target 

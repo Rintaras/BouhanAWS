@@ -1,0 +1,17 @@
+# LINE Notify API トークン設定
+# 
+# 1. https://notify-bot.line.me/ja/ にアクセス
+# 2. LINEアカウントでログイン
+# 3. 「マイページ」→「トークンを発行する」
+# 4. トークン名を入力（例：「防犯カメラシステム」）
+# 5. 通知を送信したいトークルームを選択
+# 6. 発行されたトークンをコピー
+# 
+# 環境変数として設定する方法：
+# export LINE_NOTIFY_TOKEN=your_token_here
+# 
+# または、systemdサービスの環境変数として設定：
+# sudo systemctl edit security-camera.service
+# 
+# [Service]
+# Environment="LINE_NOTIFY_TOKEN=your_token_here" 

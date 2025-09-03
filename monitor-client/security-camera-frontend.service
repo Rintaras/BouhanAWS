@@ -1,0 +1,15 @@
+[Unit]
+Description=Security Camera Frontend Server
+After=network.target security-camera.service
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/kumikomi3/monitor-client
+Environment=PATH=/usr/bin:/usr/local/bin
+ExecStart=/usr/bin/npm run dev
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target 

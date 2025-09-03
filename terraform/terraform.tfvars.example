@@ -1,0 +1,65 @@
+# ========================================
+# Terraform 変数値例ファイル
+# terraform.tfvars.example
+# ========================================
+
+# AWS 基本設定
+aws_region = "ap-northeast-1"
+environment = "production"
+
+# S3 設定
+s3_bucket_name = "security-camera-frontend"
+
+# CloudFront 設定（オプション）
+# custom_domain = "security-camera.yourdomain.com"
+# ssl_certificate_arn = "arn:aws:acm:us-east-1:123456789012:certificate/your-certificate-id"
+
+# Lambda 設定
+lambda_function_name = "security-camera-api-proxy"
+
+# ラズパイ設定（重要！）
+raspberry_pi_ip = "192.168.1.100"
+raspberry_pi_port = "3000"
+
+# WAF 設定
+waf_rate_limit = 2000
+waf_geo_restriction_countries = ["JP", "US"]
+# waf_blocked_ips = ["192.168.1.1", "10.0.0.1"]
+
+# ログ設定
+log_retention_days = 90
+
+# アラート設定（オプション）
+# alert_email = "admin@yourdomain.com"
+
+# セキュリティ設定（オプション）
+# basic_auth_username = "admin"
+# basic_auth_password = "your-secure-password"
+
+# パフォーマンス設定
+lambda_timeout = 30
+lambda_memory_size = 128
+
+# コスト管理設定
+cost_alert_threshold = 50
+
+# 開発環境設定
+enable_debug = false
+
+# バックアップ設定
+backup_enabled = true
+backup_retention_days = 30
+
+# 監視設定
+monitoring_enabled = true
+health_check_enabled = true
+
+# タグ設定
+tags = {
+  Project     = "security-camera"
+  Environment = "production"
+  ManagedBy   = "terraform"
+  Owner       = "your-name"
+  CostCenter  = "security"
+} 
+ 

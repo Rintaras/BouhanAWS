@@ -1,0 +1,16 @@
+[Unit]
+Description=Security Camera System
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/kumikomi3/camera-server
+Environment=PATH=/home/pi/kumikomi3/camera-server/venv/bin
+Environment="LINE_CHANNEL_ACCESS_TOKEN=HyY0zRKTZHR6I+l8gmnfPW9G0NJI026pG5W3rH2RPLQqNBaJR/AUSNMjh/7lpD61SwnEzHjcJZ2oe1vEPoFbFToDvR8tkjfctUnsQN7vzNGUJdbG7UVveNiosqWJGjm5jN+TwibvARdkgsAyjf2z7QdB04t89/1O/w1cDnyilFU="
+ExecStart=/home/pi/kumikomi3/camera-server/venv/bin/python main.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target 

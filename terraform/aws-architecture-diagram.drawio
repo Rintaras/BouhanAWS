@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-01-23T13:00:00.000Z" agent="5.0" etag="xyz" version="24.0.0" type="device">
+  <diagram name="Security Camera System - Serverless Architecture" id="security-camera-aws">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <mxCell id="title" value="Security Camera System - Serverless Architecture" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="350" y="30" width="700" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="aws-cloud" value="" style="fillColor=#FFF2CC;strokeColor=#D6B656;dashed=1;verticalAlign=top;fontStyle=1;fontColor=#232F3E;whiteSpace=wrap;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="150" y="100" width="1100" height="650" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="aws-label" value="AWS Cloud" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#D6B656;" vertex="1" parent="1">
+          <mxGeometry x="170" y="110" width="120" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="users" value="Users" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.aws4.users;fillColor=#E7157B;gradientColor=none;fontSize=14;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="661" y="20" width="78" height="78" as="geometry" />
+        </mxCell>
+
+        <mxCell id="waf" value="AWS WAF" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.aws4.waf;fillColor=#F58536;gradientColor=none;fontSize=12;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="461" y="150" width="78" height="78" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cloudfront" value="CloudFront" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.aws4.cloudfront;fillColor=#F58536;gradientColor=none;fontSize=12;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="661" y="150" width="78" height="78" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s3-frontend" value="S3 Frontend" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.aws4.s3;fillColor=#7AA116;gradientColor=none;fontSize=12;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="861" y="150" width="78" height="78" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s3-logs" value="S3 Logs" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.aws4.s3;fillColor=#7AA116;gradientColor=none;fontSize=12;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="1061" y="150" width="78" height="78" as="geometry" />
+        </mxCell>
+
+        <mxCell id="apigateway" value="API Gateway" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.aws4.api_gateway;fillColor=#FF9900;gradientColor=none;fontSize=12;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="661" y="300" width="78" height="78" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lambda-api" value="Lambda API Proxy" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.aws4.lambda;fillColor=#FF9900;gradientColor=none;fontSize=12;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="461" y="450" width="78" height="78" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lambda-line" value="Lambda Line Notification" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.aws4.lambda;fillColor=#FF9900;gradientColor=none;fontSize=12;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="861" y="450" width="78" height="78" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dynamodb" value="DynamoDB" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.aws4.dynamodb;fillColor=#3334B9;gradientColor=none;fontSize=12;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="261" y="450" width="78" height="78" as="geometry" />
+        </mxCell>
+
+        <mxCell id="iot-core" value="IoT Core" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.aws4.iot_core;fillColor=#3334B9;gradientColor=none;fontSize=12;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="661" y="600" width="78" height="78" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cloudwatch" value="CloudWatch" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.aws4.cloudwatch;fillColor=#759C3E;gradientColor=none;fontSize=12;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="1061" y="300" width="78" height="78" as="geometry" />
+        </mxCell>
+
+        <mxCell id="raspberry-pi" value="Raspberry Pi" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.aws4.traditional_server;fillColor=#E7157B;gradientColor=none;fontSize=12;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="61" y="600" width="78" height="78" as="geometry" />
+        </mxCell>
+
+        <mxCell id="line-api" value="Line API" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.aws4.external_sdk;fillColor=#E7157B;gradientColor=none;fontSize=12;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="1261" y="450" width="78" height="78" as="geometry" />
+        </mxCell>
+
+        <mxCell id="conn1" value="1. HTTPS Access" style="endArrow=classic;rounded=0;strokeColor=#232F3E;strokeWidth=4;labelBackgroundColor=#FFFFFF;fontSize=12;fontStyle=1;fontColor=#232F3E;" edge="1" parent="1" source="users" target="cloudfront">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="98" as="sourcePoint" />
+            <mxPoint x="700" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="conn2" value="2. Security Filter" style="endArrow=classic;rounded=0;strokeColor=#FF6B6B;strokeWidth=4;labelBackgroundColor=#FFFFFF;fontSize=12;fontStyle=1;fontColor=#FF6B6B;" edge="1" parent="1" source="waf" target="cloudfront">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="539" y="189" as="sourcePoint" />
+            <mxPoint x="661" y="189" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="conn3" value="3. Static Files" style="endArrow=classic;rounded=0;strokeColor=#7AA116;strokeWidth=4;labelBackgroundColor=#FFFFFF;fontSize=12;fontStyle=1;fontColor=#7AA116;" edge="1" parent="1" source="cloudfront" target="s3-frontend">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="739" y="189" as="sourcePoint" />
+            <mxPoint x="861" y="189" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="conn4" value="4. API Calls" style="endArrow=classic;rounded=0;strokeColor=#FF9900;strokeWidth=4;labelBackgroundColor=#FFFFFF;fontSize=12;fontStyle=1;fontColor=#FF9900;" edge="1" parent="1" source="cloudfront" target="apigateway">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="228" as="sourcePoint" />
+            <mxPoint x="700" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="conn5" value="5. Execute Function" style="endArrow=classic;rounded=0;strokeColor=#FF9900;strokeWidth=4;labelBackgroundColor=#FFFFFF;fontSize=12;fontStyle=1;fontColor=#FF9900;" edge="1" parent="1" source="apigateway" target="lambda-api">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="661" y="378" as="sourcePoint" />
+            <mxPoint x="539" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="conn6" value="6. Session Data" style="endArrow=classic;rounded=0;strokeColor=#3334B9;strokeWidth=4;labelBackgroundColor=#FFFFFF;fontSize=12;fontStyle=1;fontColor=#3334B9;" edge="1" parent="1" source="lambda-api" target="dynamodb">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="461" y="489" as="sourcePoint" />
+            <mxPoint x="339" y="489" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="conn7" value="7. Camera Control" style="endArrow=classic;rounded=0;strokeColor=#E7157B;strokeWidth=4;labelBackgroundColor=#FFFFFF;fontSize=12;fontStyle=1;fontColor=#E7157B;" edge="1" parent="1" source="lambda-api" target="raspberry-pi">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="461" y="528" as="sourcePoint" />
+            <mxPoint x="139" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="conn8" value="8. MQTT Events" style="endArrow=classic;rounded=0;strokeColor=#3334B9;strokeWidth=4;labelBackgroundColor=#FFFFFF;fontSize=12;fontStyle=1;fontColor=#3334B9;" edge="1" parent="1" source="raspberry-pi" target="iot-core">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="139" y="639" as="sourcePoint" />
+            <mxPoint x="661" y="639" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="conn9" value="9. Motion Alert" style="endArrow=classic;rounded=0;strokeColor=#3334B9;strokeWidth=4;labelBackgroundColor=#FFFFFF;fontSize=12;fontStyle=1;fontColor=#3334B9;" edge="1" parent="1" source="iot-core" target="lambda-line">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="739" y="600" as="sourcePoint" />
+            <mxPoint x="861" y="528" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="conn10" value="10. Push Notification" style="endArrow=classic;rounded=0;strokeColor=#E7157B;strokeWidth=4;labelBackgroundColor=#FFFFFF;fontSize=12;fontStyle=1;fontColor=#E7157B;" edge="1" parent="1" source="lambda-line" target="line-api">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="939" y="489" as="sourcePoint" />
+            <mxPoint x="1261" y="489" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="conn11" value="Access Logs" style="endArrow=classic;rounded=0;strokeColor=#7AA116;strokeWidth=2;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#7AA116;" edge="1" parent="1" source="cloudfront" target="s3-logs">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="739" y="189" as="sourcePoint" />
+            <mxPoint x="1061" y="189" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="conn12" value="Metrics" style="endArrow=classic;rounded=0;strokeColor=#759C3E;strokeWidth=2;dashed=1;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#759C3E;" edge="1" parent="1" source="lambda-api" target="cloudwatch">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="539" y="450" as="sourcePoint" />
+            <mxPoint x="1061" y="378" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="conn13" value="Metrics" style="endArrow=classic;rounded=0;strokeColor=#759C3E;strokeWidth=2;dashed=1;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#759C3E;" edge="1" parent="1" source="lambda-line" target="cloudwatch">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="939" y="450" as="sourcePoint" />
+            <mxPoint x="1061" y="378" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="conn14" value="Metrics" style="endArrow=classic;rounded=0;strokeColor=#759C3E;strokeWidth=2;dashed=1;labelBackgroundColor=#FFFFFF;fontSize=10;fontColor=#759C3E;" edge="1" parent="1" source="apigateway" target="cloudwatch">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="739" y="339" as="sourcePoint" />
+            <mxPoint x="1061" y="339" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="legend-box" value="" style="rounded=1;whiteSpace=wrap;fillColor=#F8F9FA;strokeColor=#DEE2E6;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="780" width="500" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-title" value="Data Flow Legend" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="60" y="790" width="150" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend1" value="Main Data Flow (1-10)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="60" y="815" width="200" height="15" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend2" value="IoT/MQTT Communication" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#3334B9;" vertex="1" parent="1">
+          <mxGeometry x="60" y="835" width="200" height="15" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend3" value="Monitoring and Logs" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#759C3E;" vertex="1" parent="1">
+          <mxGeometry x="60" y="855" width="200" height="15" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend4" value="External Services" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#E7157B;" vertex="1" parent="1">
+          <mxGeometry x="280" y="815" width="200" height="15" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend5" value="Storage and CDN" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#7AA116;" vertex="1" parent="1">
+          <mxGeometry x="280" y="835" width="200" height="15" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend6" value="API and Compute" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#FF9900;" vertex="1" parent="1">
+          <mxGeometry x="280" y="855" width="200" height="15" as="geometry" />
+        </mxCell>
+
+        <mxCell id="info-box" value="" style="rounded=1;whiteSpace=wrap;fillColor=#E8F5E8;strokeColor=#4CAF50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="850" y="780" width="400" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="info-title" value="System Information" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="860" y="790" width="200" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="info1" value="Architecture: 100% Serverless" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="860" y="815" width="180" height="15" as="geometry" />
+        </mxCell>
+
+        <mxCell id="info2" value="Security: WAF + SSL/TLS" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="860" y="835" width="180" height="15" as="geometry" />
+        </mxCell>
+
+        <mxCell id="info3" value="Estimated Cost: $16/month" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="860" y="855" width="180" height="15" as="geometry" />
+        </mxCell>
+
+        <mxCell id="info4" value="Notifications: Line API" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="815" width="180" height="15" as="geometry" />
+        </mxCell>
+
+        <mxCell id="info5" value="Real-time: MQTT/IoT Core" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="835" width="180" height="15" as="geometry" />
+        </mxCell>
+
+        <mxCell id="info6" value="Monitoring: CloudWatch" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="855" width="180" height="15" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

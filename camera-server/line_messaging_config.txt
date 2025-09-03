@@ -1,0 +1,22 @@
+# LINE Messaging API 設定（友達全員にブロードキャスト）
+# 
+# 1. LINE Developers Console (https://developers.line.biz/console/) にアクセス
+# 2. LINEアカウントでログイン
+# 3. 新しいプロバイダーを作成
+# 4. 新しいチャネルを作成（Messaging API）
+# 5. チャネルアクセストークン（長期）を取得
+# 6. ボットを友達追加（友達全員に通知が送信されます）
+# 
+# 環境変数として設定する方法：
+# export LINE_CHANNEL_ACCESS_TOKEN=your_channel_access_token_here
+# 
+# または、systemdサービスの環境変数として設定：
+# sudo systemctl edit security-camera.service
+# 
+# [Service]
+# Environment="LINE_CHANNEL_ACCESS_TOKEN=your_channel_access_token_here"
+# 
+# 注意：
+# - ブロードキャスト機能を使用するため、ユーザーIDは不要です
+# - ボットを友達追加した全員に通知が送信されます
+# - 物体検知時に画像付きで通知が送信されます 

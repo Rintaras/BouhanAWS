@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>セキュリティカメラシステム</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="セキュリティカメラシステム - リアルタイム監視と録画管理">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Loading Screen -->
+        <div id="loading-screen" class="loading-screen">
+            <div class="loading-spinner"></div>
+            <p>システムを読み込み中...</p>
+        </div>
+
+        <!-- Login Screen -->
+        <div id="login-screen" class="login-screen">
+            <div class="login-container">
+                <div class="login-header">
+                    <h1>🔒 セキュリティカメラ</h1>
+                    <p>認証が必要です</p>
+                </div>
+                <form id="login-form" class="login-form">
+                    <div class="form-group">
+                        <label for="username">ユーザー名</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">パスワード</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="login-btn">ログイン</button>
+                </form>
+                <div id="login-error" class="error-message"></div>
+            </div>
+        </div>
+
+        <!-- Main Application -->
+        <div id="main-app" class="main-app">
+            <!-- Header -->
+            <header class="app-header">
+                <div class="header-left">
+                    <h1>📹 セキュリティカメラ</h1>
+                    <div class="status-indicator" id="status-indicator">
+                        <span class="status-dot"></span>
+                        <span id="connection-status">接続中...</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button id="refresh-btn" class="icon-btn" title="更新">🔄</button>
+                    <button id="settings-btn" class="icon-btn" title="設定">⚙️</button>
+                    <button id="logout-btn" class="icon-btn" title="ログアウト">🚪</button>
+                </div>
+            </header>
+
+            <!-- Navigation -->
+            <nav class="nav-tabs">
+                <button class="nav-tab active" data-tab="live">📹 ライブ映像</button>
+                <button class="nav-tab" data-tab="recordings">📁 録画一覧</button>
+                <button class="nav-tab" data-tab="settings">⚙️ 設定</button>
+            </nav>
+
+            <!-- Content Area -->
+            <main class="content-area">
+                <!-- Live View Tab -->
+                <div id="live-tab" class="tab-content active">
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <img id="live-video" class="video-stream" alt="ライブ映像">
+                            <div class="video-overlay">
+                                <div class="video-controls">
+                                    <button id="start-camera-btn" class="control-btn">📹 カメラ開始</button>
+                                    <button id="stop-camera-btn" class="control-btn">⏹️ カメラ停止</button>
+                                    <button id="snapshot-btn" class="control-btn">📸 スナップショット</button>
+                                </div>
+                                <div class="video-info">
+                                    <span id="video-status">待機中</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="camera-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">フレームレート:</span>
+                                <span id="fps-display">0 FPS</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">解像度:</span>
+                                <span id="resolution-display">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">最終更新:</span>
+                                <span id="last-update">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recordings Tab -->
+                <div id="recordings-tab" class="tab-content">
+                    <div class="recordings-header">
+                        <h2>📁 録画ファイル</h2>
+                        <div class="recordings-controls">
+                            <button id="refresh-recordings-btn" class="control-btn">🔄 更新</button>
+                            <select id="date-filter" class="date-filter">
+                                <option value="">すべての日付</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="recordings-list" class="recordings-list">
+                        <div class="loading-recordings">録画ファイルを読み込み中...</div>
+                    </div>
+                </div>
+
+                <!-- Settings Tab -->
+                <div id="settings-tab" class="tab-content">
+                    <div class="settings-container">
+                        <h2>⚙️ システム設定</h2>
+
+                        <div class="settings-section">
+                            <h3>📹 カメラ設定</h3>
+                            <div class="setting-item">
+                                <label for="video-quality">映像品質:</label>
+                                <select id="video-quality">
+                                    <option value="high">高品質 (1080p)</option>
+                                    <option value="medium" selected>標準 (720p)</option>
+                                    <option value="low">低品質 (480p)</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label for="motion-detection">動体検知:</label>
+                                <input type="checkbox" id="motion-detection" checked>
+                                <span class="checkbox-label">有効</span>
+                            </div>
+                        </div>
+
+                        <div class="settings-section">
+                            <h3>🔔 通知設定</h3>
+                            <div class="setting-item">
+                                <label for="line-notifications">Line通知:</label>
+                                <input type="checkbox" id="line-notifications" checked>
+                                <span class="checkbox-label">有効</span>
+                            </div>
+                            <div class="setting-item">
+                                <label for="motion-sensitivity">動体検知感度:</label>
+                                <input type="range" id="motion-sensitivity" min="1" max="10" value="5">
+                                <span id="sensitivity-value">5</span>
+                            </div>
+                        </div>
+
+                        <div class="settings-section">
+                            <h3>💾 録画設定</h3>
+                            <div class="setting-item">
+                                <label for="auto-recording">自動録画:</label>
+                                <input type="checkbox" id="auto-recording" checked>
+                                <span class="checkbox-label">動体検知時に録画</span>
+                            </div>
+                            <div class="setting-item">
+                                <label for="recording-duration">録画時間:</label>
+                                <select id="recording-duration">
+                                    <option value="30">30秒</option>
+                                    <option value="60" selected>1分</option>
+                                    <option value="120">2分</option>
+                                    <option value="300">5分</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="settings-actions">
+                            <button id="save-settings-btn" class="primary-btn">💾 設定を保存</button>
+                            <button id="reset-settings-btn" class="secondary-btn">🔄 リセット</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Modal for video playback -->
+        <div id="video-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title">録画再生</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <video id="modal-video" controls width="100%">
+                        お使いのブラウザは動画再生をサポートしていません。
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast notifications -->
+        <div id="toast-container" class="toast-container"></div>
+    </div>
+
+    <!-- Configuration Script -->
+    <script>
+        window.CONFIG = {
+            API_BASE_URL: '${api_gateway_url}',
+            REGION: '${region}',
+            WS_ENDPOINT: null // WebSocket will be handled differently in serverless
+        };
+    </script>
+
+    <!-- Main Application Script -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>
