@@ -17,25 +17,34 @@ Raspberry Pi を使用したリアルタイム防犯カメラシステムです�
 ## 🌐 アクセス情報
 
 ### CloudFront URL (インターネット経由アクセス)
-- **フロントエンドURL**: https://d1ayuibfpvx6ov.cloudfront.net
-- **API Gateway URL**: https://j5793ql583.execute-api.ap-northeast-1.amazonaws.com/prod
+- **フロントエンドURL**: `https://YOUR_CLOUDFRONT_DISTRIBUTION_ID.cloudfront.net`
+- **API Gateway URL**: `https://YOUR_API_GATEWAY_ID.execute-api.ap-northeast-1.amazonaws.com/prod`
+
+> **設定方法**: 
+> 1. AWS CloudFrontコンソールでDistribution IDを確認
+> 2. AWS API GatewayコンソールでAPI Gateway URLを確認
+> 3. 上記のプレースホルダーを実際のURLに置き換えてください
 
 ### ローカルアクセス
-- **フロントエンドURL**: http://localhost:5173
-- **カメラサーバーURL**: http://172.20.10.2:3000
+- **フロントエンドURL**: `http://localhost:5173`
+- **カメラサーバーURL**: `http://YOUR_RASPBERRY_PI_IP:3000`
+
+> **設定方法**: 
+> 1. `YOUR_RASPBERRY_PI_IP`を実際のRaspberry PiのIPアドレスに置き換えてください
+> 2. `ip addr show`コマンドでIPアドレスを確認できます
 
 ## 🔒 セキュリティとネットワークアクセス
 
 ### アクセス方法
 
 #### CloudFrontアクセス（フル機能対応）
-- **フロントエンドURL**: https://d1ayuibfpvx6ov.cloudfront.net
+- **フロントエンドURL**: `https://YOUR_CLOUDFRONT_DISTRIBUTION_ID.cloudfront.net`
 - **機能**: カメラ制御、監視、録画機能すべて利用可能
 - **技術**: AWS IoT経由でのセキュアなカメラ制御
 
 #### ローカルネットワークアクセス（直接制御）
-- **フロントエンドURL**: http://172.20.10.2:8001
-- **カメラサーバーURL**: http://172.20.10.2:3000
+- **フロントエンドURL**: `http://YOUR_RASPBERRY_PI_IP:8001`
+- **カメラサーバーURL**: `http://YOUR_RASPBERRY_PI_IP:3000`
 - **要件**: Raspberry Piと同じWi-Fiネットワークに接続
 
 ### セキュリティ仕様
@@ -75,7 +84,7 @@ Raspberry Pi を使用したリアルタイム防犯カメラシステムです�
 
 **解決方法**:
 1. Raspberry Piと同じWi-Fiネットワークに接続
-2. ローカルURL（http://172.20.10.2:8001）でアクセス
+2. ローカルURL（`http://YOUR_RASPBERRY_PI_IP:8001`）でアクセス
 3. カメラサーバーが起動していることを確認
 
 ## 🛠 技術スタック
@@ -163,23 +172,66 @@ terraform plan
 terraform apply -auto-approve
 ```
 
+### 🔧 URL設定方法
+
+#### CloudFront Distribution IDの確認
+```bash
+# AWS CLIでCloudFront Distribution一覧を確認
+aws cloudfront list-distributions --query 'DistributionList.Items[*].[Id,DomainName,Comment]' --output table
+
+# またはTerraformの出力から確認
+cd terraform
+terraform output cloudfront_distribution_id
+```
+
+#### API Gateway URLの確認
+```bash
+# AWS CLIでAPI Gateway一覧を確認
+aws apigateway get-rest-apis --query 'items[*].[id,name,createdDate]' --output table
+
+# またはTerraformの出力から確認
+cd terraform
+terraform output api_gateway_url
+```
+
+#### Raspberry Pi IPアドレスの確認
+```bash
+# Raspberry PiでIPアドレスを確認
+ip addr show | grep inet
+
+# または
+hostname -I
+```
+
+#### S3バケット名の確認
+```bash
+# AWS CLIでS3バケット一覧を確認
+aws s3 ls
+
+# またはTerraformの出力から確認
+cd terraform
+terraform output s3_bucket_name
+```
+
 4. **フロントエンドビルド & デプロイ**
 ```bash
 cd monitor-client
 npm run build
-aws s3 sync dist/ s3://security-camera-frontend-serverless-2024/
-aws cloudfront create-invalidation --distribution-id E1VLB4DPLHSE34 --paths "/*"
+aws s3 sync dist/ s3://YOUR_S3_BUCKET_NAME/
+aws cloudfront create-invalidation --distribution-id YOUR_DISTRIBUTION_ID --paths "/*"
 ```
 
 5. **動作確認**
 ```bash
 # CloudFrontからカメラ制御をテスト
-curl -X POST "https://d1ayuibfpvx6ov.cloudfront.net/api/camera/start"
-curl -X POST "https://d1ayuibfpvx6ov.cloudfront.net/api/camera/stop"
+curl -X POST "https://YOUR_CLOUDFRONT_DISTRIBUTION_ID.cloudfront.net/api/camera/start"
+curl -X POST "https://YOUR_CLOUDFRONT_DISTRIBUTION_ID.cloudfront.net/api/camera/stop"
 
 # ブラウザでアクセス
-# https://d1ayuibfpvx6ov.cloudfront.net
+# https://YOUR_CLOUDFRONT_DISTRIBUTION_ID.cloudfront.net
 ```
+
+> **注意**: 上記の`YOUR_S3_BUCKET_NAME`、`YOUR_DISTRIBUTION_ID`、`YOUR_CLOUDFRONT_DISTRIBUTION_ID`を実際の値に置き換えてください
 
 ## 💰 推定コスト
 
@@ -229,10 +281,12 @@ cat camera-server/line_messaging_config.txt
 
 ## 📱 使用方法
 
-1. CloudFrontURL (https://d1ayuibfpvx6ov.cloudfront.net) にアクセス
+1. CloudFrontURL (`https://YOUR_CLOUDFRONT_DISTRIBUTION_ID.cloudfront.net`) にアクセス
 2. 「カメラを起動」ボタンをクリック
 3. リアルタイムでカメラ映像を確認
 4. 録画タブで過去の録画を確認・ダウンロード
+
+> **設定**: `YOUR_CLOUDFRONT_DISTRIBUTION_ID`を実際のCloudFront Distribution IDに置き換えてください
 
 ## 🤝 貢献
 
